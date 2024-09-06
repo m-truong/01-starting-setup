@@ -9,6 +9,12 @@ import {createReducer } from '@ngrx/store'
 const initialState = 0
 
 // Note: MUST export the REDUCER
-export const counterReducer = createReducer(
-    initialState
-);
+// export const counterReducer = createReducer(
+//     initialState
+// );
+
+// Note Alternative method of creating a reducers using any version of ngRx
+// state=initialState is default value
+export function counterReducer(state = initialState) {
+    return state;
+}

@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
-import { CounterService } from '../counter.service';
+// Note: That by simply using a Store, we can remove the CoutnerServiceSubscription to wathc the state of the counter
+// INSTEAD that app-wide counter-state is being maintained VIA THE STORE
+// import { CounterService } from '../counter.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-counter-output',
@@ -9,20 +12,12 @@ import { CounterService } from '../counter.service';
   styleUrls: ['./counter-output.component.css'],
 })
 export class CounterOutputComponent implements OnInit, OnDestroy {
-  counter = 0;
-  counterServiceSub?: Subscription;
+  // counter = 0;
+  // counterServiceSub?: Subscription;
 
-  constructor(private counterService: CounterService) {}
+  // Must DECORATE with $-sign if those properties STORE an OBSERVABLE
+  count$: Observable<number>;
 
-  ngOnInit(): void {
-    this.counterServiceSub = this.counterService.counterChanged.subscribe(
-      (newVal) => (this.counter = newVal)
-    );
-  }
+  constructor(private store: Store) {}
 
-  ngOnDestroy(): void {
-    if (this.counterServiceSub) {
-      this.counterServiceSub.unsubscribe();
-    }
-  }
 }
