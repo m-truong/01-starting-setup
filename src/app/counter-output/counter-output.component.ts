@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+// Note: only add AsyncPipe import if USING standalone components
+// import {AsyncPipe} from '@angular/common';
 
 // Note: That by simply using a Store, we can remove the CoutnerServiceSubscription to wathc the state of the counter
 // INSTEAD that app-wide counter-state is being maintained VIA THE STORE
