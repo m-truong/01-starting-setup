@@ -1,2 +1,6 @@
-<p class="counter">{{ counter }}</p>
-<p class="counter">Double: {{ counter * 2 }}</p>
+<!-- Note: This dynamic-expression-interpolation is very unique to Angular -->
+<!-- within the {{interpolated dynamic expression}} adding a single | symbol indicates to the Angular compiler that it's a PIPE operator ~~ similar to && AND operator -->
+<!-- the keyword 'async' operator is a reseved keyword that will AUTOMATICALLY UPDATE THE UI based on the value of the count$ Store state -->
+<!-- The observable value gets AUTOMATICALLY UPDATED  -->
+<p class="counter">{{ count$ | async }}</p>
+<p class="counter">Double: </p>
