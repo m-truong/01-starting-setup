@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store'
 // import { CounterActions, INCREMENT, IncrementAction } from './counter.actions';
-import { incrementActionEvent } from './counter.actions';
+import { decrementActionEvent, incrementActionEvent } from './counter.actions';
 
 // initialState of entire ngrx app-wide store
 const initialState = 0
@@ -9,6 +9,8 @@ const initialState = 0
 export const counterReducer = createReducer(
     initialState, on(incrementActionEvent, (state, action) => {
         return state + action.value;
+    }), on(decrementActionEvent, (state, action) => {
+        return state - action.value;
     })
 );
 

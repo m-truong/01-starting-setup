@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { incrementActionEvent } from '../store/counter.actions';
+import { decrementActionEvent, incrementActionEvent } from '../store/counter.actions';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -19,5 +19,6 @@ export class CounterControlsComponent {
   }
 
   decrement() {
+    this.store.dispatch(decrementActionEvent({value: 2}))
   }
 }

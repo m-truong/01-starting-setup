@@ -16,10 +16,20 @@
 
 import { Action, createAction, props } from "@ngrx/store"
 
+export const COUNTER_EVENTS = {
+    increment: '[Counter] Increment',
+    decrement: '[Counter] Decrement'
+}
+
+// NOTE that the PROPS() function takes an OBJECT with KEY-VALUE pairs
 export const incrementActionEvent = createAction(
-    '[Counter] Increment',
+    COUNTER_EVENTS.increment,
     props<{value: number}>()
-    // NOTE that the PROPS() function takes an OBJECT with KEY-VALUE pairs
+);
+
+export const decrementActionEvent = createAction(
+    COUNTER_EVENTS.decrement,
+    props<{value: number}>()
 );
 
 // alternative way of defining an action
