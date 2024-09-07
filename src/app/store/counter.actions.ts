@@ -10,4 +10,6 @@
 // Then Increment for the FEATURE RELATED ACTION
 
 import { createAction } from "@ngrx/store"
+
+// under the hood - this is actually an exported function
 export const incrementActionEvent = createAction('[Counter] Increment')
