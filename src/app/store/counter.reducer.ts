@@ -1,10 +1,17 @@
+import { createReducer, on } from '@ngrx/store'
+import { incrementActionEvent } from './counter.actions';
+const initialState = 0
+export const counterReducer = createReducer(
+    initialState, on(incrementActionEvent, (state) => {
+        console.log(state);
+        return state + 1;
+    })
+);
 // NOTE: 'on()' IS EXTREMELY SPECIAL RESERVED KEYWORD USED IN NGRX
 // IT is used with the REDUCER to LISTEN for CUSTOM DEFINED ACTIONS
 // HIWHC ARE USED INSIDE THE REDUCER
 // SO THE REDUCER IS THE HOUSING FUNCTION THAT WILL LISTEN FOR THE ACTION STRINGS USCH AS , '[Counter] Increment'
 // the FEATURE always encapsulated INSIDE the square brackets syntax []
-import { createReducer, on } from '@ngrx/store'
-import { incrementActionEvent } from './counter.actions';
 // Note: Reducers are important for initially setting up data
 
 // Note: This is important reducer for managinging the 'Counter'- state'
@@ -12,7 +19,6 @@ import { incrementActionEvent } from './counter.actions';
 
 // NgRx anything can be any TYPE OF INITIAL STATE
 // Best practice is to just leave the initialState as a separate Variable
-const initialState = 0
 
 // Note: MUST export the REDUCER
 // now the counterReducer will PASS the CURRENT-STATE into the SECOND PARAMETER OF THE on()
@@ -24,12 +30,6 @@ const initialState = 0
 // DON'T MUTATE INITIAL STATE
 // JUST RETURN A NEW STATE
 // KEY CONCEPT IS THAT NGRX UNDER THE HOOD WILL AUTOMATICALLY UPDATE THE STATE FOR THIS SLICE OF DATA WITH THIS NEW STATE
-export const counterReducer = createReducer(
-    initialState, on(incrementActionEvent, (state) => {
-        console.log(state);
-        return state + 1;
-    })
-);
 
 // Note Alternative method of creating a reducers using any version of ngRx
 // state=initialState is default value
