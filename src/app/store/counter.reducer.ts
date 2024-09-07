@@ -1,4 +1,5 @@
-import { createReducer, on } from '@ngrx/store'
+import { Action, createReducer, on } from '@ngrx/store'
+// import { CounterActions, INCREMENT, IncrementAction } from './counter.actions';
 import { incrementActionEvent } from './counter.actions';
 
 // initialState of entire ngrx app-wide store
@@ -6,11 +7,22 @@ const initialState = 0
 
 // create the counterReducer
 export const counterReducer = createReducer(
-    initialState, on(incrementActionEvent, (state) => {
-        console.log(state);
-        return state + 1;
+    initialState, on(incrementActionEvent, (state, action) => {
+        return state + action.value;
     })
 );
+
+// alternative method of creating a reducer
+// export function counterReducer(state = initialState, action: CounterActions | Action) {
+//     // console.log(action.)
+//     if (action.type === INCREMENT) {
+//         // THIS as keyword is known as TYPE-CASTING
+//         return state + (action as IncrementAction).value;
+//     }
+//     return state; // note this is the unchanged state of the overall store
+// }
+
+
 // NOTE: 'on()' IS EXTREMELY SPECIAL RESERVED KEYWORD USED IN NGRX
 // IT is used with the REDUCER to LISTEN for CUSTOM DEFINED ACTIONS
 // HIWHC ARE USED INSIDE THE REDUCER

@@ -10,10 +10,12 @@ import { Store } from '@ngrx/store';
 export class CounterControlsComponent {
   constructor(private store: Store) {}
 
+  // note this store has a pre-defined dispatch method built into the store
+  // note m
   increment() {
-    // note this store has a pre-defined dispatch method built into the store
-    // note m
-    this.store.dispatch(incrementActionEvent())
+    // note how must pass an OBJECT with matching key for the props value
+    // this.store.dispatch(incrementActionEvent({value: 2}))
+    this.store.dispatch(incrementActionEvent({value: 2}))
   }
 
   decrement() {
