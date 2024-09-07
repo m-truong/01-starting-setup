@@ -1,6 +1,10 @@
 import { createReducer, on } from '@ngrx/store'
 import { incrementActionEvent } from './counter.actions';
+
+// initialState of entire ngrx app-wide store
 const initialState = 0
+
+// create the counterReducer
 export const counterReducer = createReducer(
     initialState, on(incrementActionEvent, (state) => {
         console.log(state);
