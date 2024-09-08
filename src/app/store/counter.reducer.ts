@@ -3,7 +3,7 @@ import { Action, createReducer, on } from '@ngrx/store'
 import { decrementActionEvent, incrementActionEvent } from './counter.actions';
 
 // initialState of entire ngrx app-wide store
-const initialState = 0
+const initialState: number = 0;
 
 // create the counterReducer
 export const counterReducer = createReducer(
