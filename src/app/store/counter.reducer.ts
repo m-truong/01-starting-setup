@@ -12,7 +12,6 @@ export const counterReducer = createReducer(
     }), on(decrementActionEvent, (state, action) => {
         return state - action.value;
     }), on(setActionEvent, (state, action) => action.value),
-    on(initActionEvent, (state, action) => )
 );
 
 // alternative method of creating a reducer
