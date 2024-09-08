@@ -15,6 +15,7 @@ export class CounterControlsComponent {
   increment() {
     // note how must pass an OBJECT with matching key for the props value
     // this.store.dispatch(incrementActionEvent({value: 2}))
+    // note this is called ActionsObjects!!!
     this.store.dispatch(incrementActionEvent({value: 2}))
   }
 
