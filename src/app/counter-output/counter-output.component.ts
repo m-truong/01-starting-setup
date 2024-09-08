@@ -8,10 +8,13 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./counter-output.component.css'],
 })
 export class CounterOutputComponent {
+
   count$: Observable<number>;
+
   constructor(private store: Store<{counter: number}>) {
     this.count$=store.select('counter')
   }
+
 }
 
 // Note; Do NOT CALL REDUCERS yourself: instead must DISPATCH ACTIONS that WILL CALL THE REDCUERS
