@@ -17,9 +17,21 @@
 import { Action, createAction, props } from "@ngrx/store"
 
 export const COUNTER_EVENTS = {
+    set: '[Counter] Set Counter',
+    init: '[Counter] Init Counter',
     increment: '[Counter] Increment',
     decrement: '[Counter] Decrement'
 }
+
+export const initActionEvent = createAction(
+    COUNTER_EVENTS.init,
+// NOTE: not payload
+)
+
+export const setActionEvent = createAction(
+    COUNTER_EVENTS.set,
+    props<{value: number}>()
+)
 
 // NOTE that the PROPS() function takes an OBJECT with KEY-VALUE pairs
 export const incrementActionEvent = createAction(
