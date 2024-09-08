@@ -8,7 +8,7 @@ import { initActionEvent } from './store/counter.actions';
     // remember must always add new components that are INSIDE the TEMPLATE of the 'standalone angular component'
     imports: [],
     templateUrl: './app.component.html',
-    styleUrls: [./app.component.css'],
+    styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
     constructor(private store: Store) {}
