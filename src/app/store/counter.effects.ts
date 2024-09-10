@@ -9,6 +9,7 @@ import { Store } from "@ngrx/store";
 @Injectable()
 export class CounterEffects {
     constructor(private actions$: Actions, private store: Store<{counter:number}>) {}
+
     saveCount = createEffect(() => this.actions$.pipe(
         ofType(incrementActionEvent, decrementActionEvent),
         withLatestFrom(this.store.select(selectCount)),
@@ -30,6 +31,8 @@ export class CounterEffects {
         })
     ))
 
+}
+
     // This is an Effects Class that is NgRx reducer class boilerplate
     // After creating a sideEffect method from the class that WILL BE LOADED into the EffectsModule([]).forRoot()
     // Then it'll be ANOTHER EVENT HANDLER THAT'LLwait for ofType(incrementActionEvent) or decrementActionEvent befoer it performs THESE SIDE EFFECTS
@@ -44,5 +47,3 @@ export class CounterEffects {
     // FUNNELED INTO THER REDUCER
     // OMG these are all ASYNCHRONOUS DISPATCHED REDUCER FUNCCTION ACTION EVENTS
     // THAT YOU CAN ASYNCHRONOLSY SELECT SLICES OF THE DATA-STORE
-
-}
